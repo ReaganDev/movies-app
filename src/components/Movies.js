@@ -1,15 +1,28 @@
 import { NavLink } from "react-router-dom";
 
 const Movies = (props) => {
-    return (
-      <div>
-        <img src={props.img} alt="imageItem" />
-        <h3>{props.title}</h3>
-        <h3>{props.year}</h3>
-        <h3>{props.type}</h3>
-       <NavLink to = {`/${props.imdbID}`}><button>Details</button></NavLink>
-      </div>
-    );
-}
+  return (
+    <div>
+        <div class="col">
+          <div class="card shadow-sm">
+             <img src={props.img === "N/A" ? '/dummy.jpg' : props.img} width="100%" height="520" class="bd-placeholder-img card-img-top" alt="imageItem" />
 
-export default Movies
+            <div class="card-body">
+                <h4>{props.title}</h4>
+             
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                 <NavLink to={`/${props.imdbID}`}><button type="button" class="btn btn-sm btn-outline-secondary">Details</button></NavLink>
+                </div>
+                <small class="text-muted">{props.year}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div></div>
+      
+    </div>
+  );
+};
+
+export default Movies;
